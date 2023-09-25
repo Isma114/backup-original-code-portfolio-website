@@ -1,0 +1,232 @@
+
+* { /* stil för att få bort onödiga mellanrum */
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box; 
+}
+
+body {
+    background-image: linear-gradient(rgba(4, 9, 12, 0.75), rgba(119, 91, 0, 0.719)), url(backg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-color: #f0f0f0; /* Bakgrund färg för body */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh; /* containers höjd till fullt viewport height */
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.navbar {          /* navigering som håller olika delar av sidan */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0082e6;
+    padding: 10px 20px; 
+}
+
+.logo {
+    width: 97px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin-right: 0;
+    padding: 0;
+
+}
+
+.menu_lista {
+    margin-left: auto; /* Flyttar navbar listor till höger för labtop skärm storlek */
+    list-style: none;
+}
+
+.menu_lista li { 
+    margin: 0 15px;
+}
+.navbar ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar ul li a { /* navbar lista stil */
+    position: relative;
+    color: white;
+    font-size: 18px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+}
+
+.navbar ul li a::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+.bild img { /* detta är ett profilbild */
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.bild img:hover {
+    transform: scale(1.3);
+}
+
+.content, .content2 { /* har gemensam stilsättning */
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+}
+
+.content h1 {
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+.content p {
+    margin: 20px auto;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+
+.content2 a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* CV knapp standard färg */
+    color: #fff; /* Text färg */
+    text-decoration: none; /* tar bort underline */
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content2 a:hover {
+    background-color: #008000; /* Ändrar knappfärg till grön när man håller muspekaren */
+    border: 1px solid #008000;
+}
+
+
+.social { /* sociala media icons */
+    font-size: 17px;
+    display: flex; /* iconer ligger horisontell */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    gap: 1.5rem;
+}
+
+.social a {
+    color: #eee;
+}
+
+.social a:hover { /* Ändrar iconerma färgen när man håller muspekaren */
+    color: #007bff;
+}
+
+footer {
+    text-align: center;
+    padding: 0 3px;
+    color: white;
+    background: #313a40;
+    position: sticky;
+}
+#follow p{
+    color: #fff;
+    font-size: medium;
+    font-weight: bold;
+
+}
+
+
+@media screen and (max-width: 768px) {   /* Media Queries för Responsivitet på olika skärmars */
+    .navbar ul {
+        display: none; /* Dölja menyn på mindre skärmar */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: #0082e6;
+        text-align: center;
+        border-radius: 0;
+    }
+
+    .navbar ul.active {
+        display: flex; /* visar meny när den är active */
+        background: #313a40; /* hamburger menu färg när man clickar */
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .navbar ul li a {
+        font-size: 16px;
+    }
+
+    .menu-toggle {
+        display: block; /* Visar hamburger menu */
+        cursor: pointer;
+        margin-right: 20px;
+    }
+
+    .ham {
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+    /* stil när det öppnas hamburger menu med javaskricpt */
+    .menu-opened .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-opened .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-opened .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    .social {
+        
+        justify-content: space-evenly;
+        
+    }
+}
